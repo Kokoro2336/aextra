@@ -1,13 +1,27 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import NavBar from "../components/NavBar.astro";
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
-    <title>Astro Basics</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <BaseHead title={title} />
   </head>
   <body>
+    <NavBar
+      items={[
+        { text: "文档", href: "/docs" },
+        { text: "博客", href: "/blog" },
+        { text: "新闻", href: "/news" },
+        { text: "友链", href: "/links" },
+        { text: "关于", href: "/about" },
+      ]}
+    />
     <slot />
   </body>
 </html>

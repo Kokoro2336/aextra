@@ -1,8 +1,9 @@
 ---
 import { theme } from "@/config";
 
-const { title, description, author } = theme
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const { title, description, author } = theme;
+// 如果未配置 site 属性，Astro.site 将为 undefined，此处加一个默认值避免报错。
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "http://localhost:4321");
 ---
 
 <meta charset="utf-8" />
