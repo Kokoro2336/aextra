@@ -1,5 +1,15 @@
 import { z } from "astro:content";
 
+const NavBarItem = z.object({
+  text: z.string(),
+  href: z.string().url(),
+});
+export type NavBarItem = z.infer<typeof NavBarItem>;
+
+export const INavBar = z.object({
+  items: z.array(NavBarItem),
+});
+
 export const ITheme = z.object({
   title: z.string().max(24),
   author: z.string().max(24),
@@ -10,4 +20,5 @@ export const ITheme = z.object({
     src: z.string(),
     alt: z.string(),
   }),
+  navbar: INavBar,
 });
