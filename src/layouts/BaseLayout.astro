@@ -1,6 +1,10 @@
 ---
+import { theme } from "@/config";
+
 import BaseHead from "../components/BaseHead.astro";
 import NavBar from "../components/NavBar.astro";
+
+const { navbar } = theme;
 
 const { title } = Astro.props;
 ---
@@ -11,16 +15,7 @@ const { title } = Astro.props;
     <BaseHead title={title} />
   </head>
   <body>
-    <!-- TODO: Move navbar items to config file -->
-    <NavBar
-      items={[
-        { text: "文档", href: "/docs" },
-        { text: "博客", href: "/blog" },
-        { text: "新闻", href: "/news" },
-        { text: "友链", href: "/links" },
-        { text: "关于", href: "/about" },
-      ]}
-    />
+    <NavBar items={navbar.items} />
     <slot />
   </body>
 </html>
