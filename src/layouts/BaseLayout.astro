@@ -32,15 +32,15 @@ const { title, article } = Astro.props;
     </script>
   </head>
   <body>
-    <NavBar items={navbar.items} />
+    <NavBar items={navbar.items} article={article} />
     <div class="w-full">
       <div
         class={cn(
-          "mx-auto flex duration-500",
+          "mx-auto flex items-center duration-500",
           article ? "max-w-[var(--page-width,1280px)]" : "max-w-1280px",
         )}
       >
-        <aside class="w-64 md:shrink-0">
+        <aside class="w-64 md:shrink-1">
           <slot name="aside" />
         </aside>
         <main class=`max-w-6xl w-full break-words flex min-w-0 justify-center pb-8`>
@@ -56,7 +56,7 @@ const { title, article } = Astro.props;
             )
           }
         </main>
-        <aside class="w-64 md:shrink-0">
+        <aside class="w-64 md:shrink-1">
           <slot name="nav" />
         </aside>
       </div>
