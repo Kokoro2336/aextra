@@ -36,7 +36,6 @@ export default function TOC({
   className,
   ...props
 }: Props & HTMLAttributes<HTMLDivElement>) {
-  const [activeId, setActiveId] = useState<string>("");
   const [items, setItems] = useState<Heading[]>([]);
 
   useEffect(() => {
@@ -124,7 +123,6 @@ export default function TOC({
             }
           }
         }
-        setActiveId(activeId);
         setItems(newItems);
       }
     };
@@ -133,7 +131,7 @@ export default function TOC({
     throttledHandleScroll(); // initial activation
     window.addEventListener("scroll", throttledHandleScroll, { passive: true });
     return () => window.removeEventListener("scroll", throttledHandleScroll);
-  }, [headings]);
+  }, [headings, minDepth]);
 
   return useMemo(
     () => (
@@ -170,6 +168,6 @@ export default function TOC({
         </ul>
       </nav>
     ),
-    [activeId, items],
+    [className, items, props],
   );
 }
