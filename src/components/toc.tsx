@@ -60,6 +60,17 @@ export default function TOC({
           const numbers = [];
           let depth = 1;
           for (let i = 0; i < headings.length; i++) {
+            if (headings[i].depth === 1) {
+              // start a new part
+              depth = 1;
+              numbers.length = 0;
+              newItems.push({
+                ...headings[i],
+                isActive: false,
+                number: "",
+              });
+              continue;
+            }
             if (path.includes(i)) {
               // if the heading is on the path, expand to the next depth
               while (depth < headings[i].depth) {
@@ -104,7 +115,7 @@ export default function TOC({
                 depth--;
                 numbers.pop();
               }
-              if (numbers.length > 0) numbers[numbers.length - 1]++;
+              numbers[numbers.length - 1]++;
               newItems.push({
                 ...headings[i],
                 isActive: false,
