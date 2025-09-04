@@ -36,13 +36,10 @@ const { title, article } = Astro.props;
     <div class="w-full">
       <div
         class={cn(
-          "mx-auto flex items-center duration-500",
+          "mx-auto flex justify-center items-center duration-500",
           article ? "max-w-[var(--page-width,1280px)]" : "max-w-1280px",
         )}
       >
-        <aside class="w-64 md:shrink-1">
-          <slot name="aside" />
-        </aside>
         <main class=`max-w-6xl w-full break-words flex min-w-0 justify-center pb-8`>
           {
             article ? (
@@ -56,10 +53,10 @@ const { title, article } = Astro.props;
             )
           }
         </main>
-        <aside class="w-64 md:shrink-1">
-          <slot name="nav" />
-        </aside>
       </div>
+      <footer>
+        <!-- TODO: add footer -->
+      </footer>
     </div>
   </body>
 </html>

@@ -1,11 +1,25 @@
 ---
 import NormalListItem from "./NormalListItem.astro"
+
+interface Props {
+    page_name?: string;
+}
+const { page_name } = Astro.props;
 ---
 
-<div class="mx-auto w-full flex flex-col justify-between items-center lg:max-w-screen-xl">
-    <div class="text-center mt-9 text-4xl font-bold text-weight-500">博客</div>
+<style is:global>
+    .rss-subscription {
+        will-change: transform;
+        transition: transform 400ms ease-in-out;
+    }
+    .rss-subscription:hover {
+        transform: scale(1.05);
+    }
+</style>
+<div class="mx-auto w-full lg:w-[800px] lg:max-w-[800px] flex flex-col justify-between items-center">
+    <div class="text-center mt-9 text-4xl font-bold text-weight-500">{page_name}</div>
     <div class="flex justify-center items-center gap-4 m-6">
-        <a href="index.xml" class="not-prose border-gray-800 shadow-[0_5px_10px_rgba(0,0,0,0.2)] inline-flex items-center rounded-full gap-2 px-3 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-neutral-800 dark:border-neutral-800 hover:border-gray-400 dark:hover:text-gray-50 dark:hover:border-gray-600 transition-all ease-in duration-200">
+        <a href="index.xml" class="rss-subscription not-prose border-gray-800 shadow-[0_5px_10px_rgba(0,0,0,0.2)] inline-flex items-center rounded-full gap-2 px-3 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-neutral-800 dark:border-neutral-800 hover:border-gray-400 dark:hover:text-gray-50 dark:hover:border-gray-600 transition-all ease-in duration-200">
             <span>RSS 订阅</span>
             <span class="hx-inline-block hx-align-text-bottom icon">
                 <svg height="14" 
@@ -24,8 +38,10 @@ import NormalListItem from "./NormalListItem.astro"
             </span>
         </a>
     </div>
-    <div class="my-6 w-full flex flex-col justify-around items-start lg:items-center">
+    <div class="my-6 w-full flex flex-col justify-around items-start xl:items-center">
         <NormalListItem title="文章标题giaoggsdsfsfsfsfsdfsfsfsdf" description="文章描述" link="https://example.com" pubDate="2023-01-01"/>
+        <NormalListItem title="文章标题" description="文章描述" link="https://example.com" pubDate="2023-01-01"/>
+        <NormalListItem title="文章标题" description="文章描述" link="https://example.com" pubDate="2023-01-01"/>
         <NormalListItem title="文章标题" description="文章描述" link="https://example.com" pubDate="2023-01-01"/>
     </div>
 </div>
