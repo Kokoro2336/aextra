@@ -9,17 +9,29 @@ interface Props {
 const { title, description, link, pubDate } = Astro.props;
 ---
 
-<div class="m-3 w-150 bg-gray-50 flex flex-col justify-evenly items-left rounded-xl border-gray-500 shadow-[0px_2px_10px_rgba(0,0,0,0.1)] pt-2 pb-4 px-4">
-    <div class="text-left my-4 font-bold text-size-6">
+<style is:global>
+    @keyframes enlarge { from { transform: scale(1); } to { transform: scale(1.02); } }
+    /* define transition */
+    .normal-list-item {
+        will-change: transform;
+        transition: transform 300ms ease;
+    }
+    .normal-list-item:hover {
+        transform: translateX(4%);
+    }
+</style>
+<div class="normal-list-item m-3 w-full bg-gray-30 transform-gpu flex flex-col justify-evenly items-left rounded-xl border-gray-500 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] pt-2 pb-4 pl-6 pr-4">
+    <a class="text-left my-4 font-bold text-size-6 cursor-pointer"
+       href={link}>
         {title}
-    </div>
+    </a>
     <div class="text-left my-1 font-light">
         {description}
     </div>
-    <a href={link} class="block my-1">
-        <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="/blog/summer-intern/">
+    <a href={link} class="block mt-2 mb-1">
+        <span class="underline underline-offset-4 decoration-from-font" style="color: rgb(59, 130, 246);">
             更多 →
-        </a>
+        </span>
     </a>
     <div class="mt-4 text-size-3.5 text-gray-400">
         {pubDate}
