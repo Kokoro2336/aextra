@@ -41,6 +41,6 @@ const { page_name } = Astro.props;
         </a>
     </div>
     <div class="my-6 w-full flex flex-col justify-around items-start xl:items-center">
-        <!-- add <NormalListItem> here -->
+        <NormalListItem title="文章标题" description="文章描述" link="https://example.com" pubDate={dayjs().format(dataFormat)}/>
     </div>
 </div>
