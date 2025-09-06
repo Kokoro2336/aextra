@@ -1,16 +1,15 @@
 ---
 interface Props {
-    title?: string;
-    description?: string;
-    link?: string;
-    pubDate?: string;
+    title: string;
+    description: string;
+    link: string;
+    pubDate: string;
 }
 
 const { title, description, link, pubDate } = Astro.props;
 ---
 
 <style is:global>
-    @keyframes enlarge { from { transform: scale(1); } to { transform: scale(1.02); } }
     /* define transition */
     .normal-list-item {
         will-change: transform;
@@ -20,7 +19,7 @@ const { title, description, link, pubDate } = Astro.props;
         transform: translateX(4%);
     }
 </style>
-<div class="normal-list-item m-3 w-full bg-gray-30 transform-gpu flex flex-col justify-evenly items-left rounded-xl border-gray-500 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] pt-2 pb-4 pl-6 pr-4">
+<div class="normal-list-item m-3 w-full bg-gray-30 transform-gpu flex flex-col justify-evenly items-start rounded-xl border-gray-500 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] pt-2 pb-4 pl-6 pr-4">
     <a class="text-left my-4 font-bold text-size-6 cursor-pointer"
        href={link}>
         {title}
