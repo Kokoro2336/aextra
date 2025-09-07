@@ -9,7 +9,7 @@ interface Props {
 const { icon, title, description, link } = Astro.props;
 ---
 
-<a href={link} class="bg-gray-30 flex w-full h-18 m-2 justify-evenly items-center rounded-4xl border-gray-900 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] cursor-pointer transition-transform duration-300 ease hover:scale-105 hover:shadow-[0px_8px_30px_rgba(0,0,0,0.1)] p-2">
+<a href={link} class="bg-gray-30 flex w-full h-18 my-2 justify-evenly items-center rounded-4xl border-gray-900 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] cursor-pointer transition-transform duration-200 ease-out hover:scale-[1.04] hover:translate-y-[4%] transform-gpu hover:shadow-[0px_8px_30px_rgba(0,0,0,0.1)] p-2">
     <span class="flex m-2">
         <img src={icon} class="w-12 h-12">
     </span>
