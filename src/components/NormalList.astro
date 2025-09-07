@@ -2,6 +2,7 @@
 import { dataFormat } from "@/config";
 import NormalListItem from "./NormalListItem.astro"
 import dayjs from "dayjs";
+import rss from "@/assets/icon/rss.svg";
 
 interface Props {
     pageName?: string;
@@ -12,31 +13,19 @@ const { pageName } = Astro.props;
 <style is:global>
     .rss-subscription {
         will-change: transform;
-        transition: transform 500ms cubic-bezier(0.51, -0.01, 0.01, 1.00) both;
+        transition: transform 500ms cubic-bezier(0.51, -0.01, 0.01, 1.00);
     }
     .rss-subscription:hover {
-        transform: scale(1.2) translateY(5px);
+        transform: scale(1.2) translateY(4px);
     }
 </style>
 <div class="mx-auto w-full lg:w-[800px] lg:max-w-[800px] flex flex-col justify-between items-center">
     <div class="text-center mt-9 text-4xl font-bold text-weight-500">{pageName}</div>
     <div class="flex justify-center items-center gap-4 m-6">
-        <a href="index.xml" class="rss-subscription not-prose border-gray-800 shadow-[0px_5px_15px_rgba(0,0,0,0.15)] inline-flex items-center rounded-full gap-2 px-3 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-neutral-800 dark:border-neutral-800 hover:border-gray-400 dark:hover:text-gray-50 dark:hover:border-gray-600 transition-all ease-in duration-200">
+        <a href="index.xml" class="rss-subscription border-1 border-gray-300 flex justify-center items-center rounded-full gap-2 px-3 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-neutral-800 dark:border-neutral-800 hover:border-gray-400 dark:hover:text-gray-50 dark:hover:border-gray-600">
             <span>RSS 订阅</span>
             <span class="inline-block align-text-bottom icon">
-                <svg height="14" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentcolor" 
-                    aria-hidden="true">
-                    <path 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        d="M6 5c7.18.0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
-                    >
-                    </path>
-                </svg>
+                <img src={rss.src} class="w-3 h-3 opacity-60"/>
             </span>
         </a>
     </div>
